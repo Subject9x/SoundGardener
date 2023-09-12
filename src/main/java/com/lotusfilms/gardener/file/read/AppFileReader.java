@@ -27,4 +27,14 @@ public abstract class AppFileReader {
 		this.readData = readData;
 	}
 	
+	/**
+	 * find and extract the file's extension type
+	 * @param fileName
+	 * @return
+	 */
+	public static String parseFileExt(String fileName) {
+		int extMark = fileName.lastIndexOf('/');
+		String ext = fileName.substring(extMark + 1).toLowerCase();
+		return  ext;
+	}
 }

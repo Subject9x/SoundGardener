@@ -4,11 +4,10 @@ import java.util.List;
 
 import com.lotusfilms.gardener.core.AppCore;
 import com.lotusfilms.gardener.data.FileTagType;
-import com.lotusfilms.gardener.data.SoundSampleLib;
 import com.lotusfilms.gardener.data.atom.SoundSample;
 
 /***
- *  Interface for querying and operations on the main {@link SoundSampleLib} under {@link AppCore}
+ *  Interface for querying and operations on the {@linkplain AppCore}'s SoundSample list.
  */
 public interface SoundSampleOperator {
 

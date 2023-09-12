@@ -2,12 +2,12 @@ package com.lotusfilms.gardener.file.write;
 
 import java.io.IOException;
 
-public abstract class FileWriter {
+public abstract class SoundFileWriter {
 
 	private String targetFile;
 	private Object targetData;
 	
-	public void write()  throws IOException{}
+	public void write() throws IOException{}
 		
 	public Object getTargetData() {
 		return targetData;

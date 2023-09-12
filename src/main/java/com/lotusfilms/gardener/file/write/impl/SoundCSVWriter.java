@@ -1,17 +1,21 @@
-package com.lotusfilms.gardener.file.write;
+package com.lotusfilms.gardener.file.write.impl;
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
-import java.io.PrintWriter;
+import java.util.List;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import com.lotusfilms.gardener.file.csv.CSVItem;
+import com.lotusfilms.gardener.file.write.SoundFileWriter;
+import com.opencsv.CSVWriter;
 
-public class CSVWriter extends FileWriter {
+public class SoundCSVWriter extends SoundFileWriter {
 
-	private Logger logger = LoggerFactory.getLogger(CSVWriter.class);
+	private Logger logger = LoggerFactory.getLogger(SoundCSVWriter.class);
+
 	
 	@Override
 	public void write() throws IOException{
@@ -23,6 +27,8 @@ public class CSVWriter extends FileWriter {
 			logger.info("target data was not a CSVItem.");
 			return;
 		}
+		
+		
 		CSVItem item = (CSVItem)getTargetData();
 		
 		File outputFile = new File(getTargetFile());
@@ -32,11 +38,11 @@ public class CSVWriter extends FileWriter {
 			return;
 		}
 		
-		try(PrintWriter pw = new PrintWriter(outputFile)){
-			item.getData()
-				.stream()
-				.map(CSVItem::convertToCSV)
-				.forEach(pw::println);
+		try(CSVWriter csvWriter = new CSVWriter(new FileWriter(outputFile.getPath()))){
+			item.getData().stream().forEach((List<String> row)->{
+				String[] rowDat = (String[])row.toArray();
+				csvWriter.writeNext(rowDat);
+			});
 		}
 	}
 }

@@ -10,6 +10,7 @@ import java.util.List;
 public class CSVFile extends CSVItem{
 	
 	private	List<List<String>> data;
+	private boolean hasHeader;
 	
 	public CSVFile() {
 		this.data = new ArrayList<List<String>>();
@@ -23,6 +24,14 @@ public class CSVFile extends CSVItem{
 		this.data = data;
 	}
 	
+	public boolean isHasHeader() {
+		return hasHeader;
+	}
+
+	public void setHasHeader(boolean hasHeader) {
+		this.hasHeader = hasHeader;
+	}
+
 	@Override
 	public List<List<String>> getData(){
 		return this.data;

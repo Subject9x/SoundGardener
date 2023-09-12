@@ -4,11 +4,10 @@ import java.util.HashMap;
 import java.util.List;
 
 import com.lotusfilms.gardener.data.FileTagType;
-import com.lotusfilms.gardener.data.SoundSampleLib;
 
 /***
  * Atomic data class of Sound Samples used in the app.
- * Consumed, collected, and modified by {@linkplain SoundSampleLib}
+
  */
 public class SoundSample {
 
